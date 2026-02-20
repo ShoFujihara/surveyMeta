@@ -215,6 +215,14 @@ print(eval_result)
 
 JDCat対応欄の記号: ◎必須 ○強く推奨 △推奨
 
+## 引用
+
+```r
+citation("surveyMeta")
+```
+
+> Fujihara, S. (2026). surveyMeta: Extract Structured Metadata from Social Survey Documents Using LLM APIs. https://github.com/ShoFujihara/surveyMeta
+
 ## License
 
 MIT
