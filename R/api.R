@@ -207,7 +207,8 @@ call_claude <- function(system_prompt,
                         model = "claude-sonnet-4-5-20250929",
                         max_tokens = 8192L,
                         temperature = 0,
-                        use_tool_use = TRUE) {
+                        use_tool_use = TRUE,
+                        tool_schema = NULL) {
 
 
   if (is.null(user_message) && is.null(user_content)) {
@@ -257,9 +258,9 @@ call_claude <- function(system_prompt,
 
   # Add tool_use if requested
   if (use_tool_use) {
-    body$tools <- list(metadata_tool_schema())
-    body$tool_choice <- list(type = "tool",
-                              name = "extract_survey_metadata")
+    schema <- tool_schema %||% metadata_tool_schema()
+    body$tools <- list(schema)
+    body$tool_choice <- list(type = "tool", name = schema$name)
   }
 
   # Build beta header: prompt caching + PDF support if needed
@@ -368,6 +369,123 @@ gemini_response_schema <- function() {
   clean_types(schema)
 }
 
+#' Define the variable extraction tool schema
+#'
+#' Returns the tool definition for extracting variable-level metadata
+#' (variable labels, value labels) from questionnaire documents.
+#'
+#' @return A list defining the tool schema.
+#' @keywords internal
+variable_tool_schema <- function() {
+  list(
+    name = "extract_survey_variables",
+    description = paste0(
+      "\u8abf\u67fb\u7968\u304b\u3089\u5909\u6570\u30e9\u30d9\u30eb\u30fb",
+      "\u5024\u30e9\u30d9\u30eb\u3092\u69cb\u9020\u5316\u3057\u3066\u62bd\u51fa\u3059\u308b\u3002"
+    ),
+    input_schema = list(
+      type = "object",
+      required = c("variables"),
+      properties = list(
+        variables = list(
+          type = "array",
+          description = paste0(
+            "\u8abf\u67fb\u7968\u306e\u5168\u8cea\u554f\u9805\u76ee\u3002",
+            "\u5404\u8981\u7d20\u306f1\u3064\u306e\u5909\u6570\u306b\u5bfe\u5fdc\u3002"
+          ),
+          items = list(
+            type = "object",
+            required = c("question_number", "label", "type", "values"),
+            properties = list(
+              question_number = list(
+                type = "string",
+                description = paste0(
+                  "\u8cea\u554f\u756a\u53f7\uff08\u4f8b: \"Q1\", \"Q2-1\", \"F1\"\uff09\u3002",
+                  "\u30de\u30c8\u30ea\u30af\u30b9\u8cea\u554f\u306f\u5c55\u958b\u3057\u3066",
+                  "\u500b\u5225\u306e\u756a\u53f7\u3092\u4ed8\u4e0e\u3002"
+                )
+              ),
+              label = list(
+                type = "string",
+                description = paste0(
+                  "\u5909\u6570\u30e9\u30d9\u30eb\uff08\u8cea\u554f\u6587\u306e\u8981\u7d04\uff09\u3002",
+                  "30\u5b57\u7a0b\u5ea6\u3067\u7c21\u6f54\u306b\u3002"
+                )
+              ),
+              type = list(
+                type = "string",
+                enum = c("single", "multiple", "numeric", "text", "matrix",
+                         "scale", "ranking", "other"),
+                description = paste0(
+                  "\u8cea\u554f\u30bf\u30a4\u30d7\u3002",
+                  "single=\u5358\u4e00\u9078\u629e, multiple=\u8907\u6570\u9078\u629e, ",
+                  "numeric=\u6570\u5024\u5165\u529b, text=\u81ea\u7531\u8a18\u8ff0, ",
+                  "matrix=\u30de\u30c8\u30ea\u30af\u30b9, scale=\u5c3a\u5ea6, ",
+                  "ranking=\u9806\u4f4d, other=\u305d\u306e\u4ed6"
+                )
+              ),
+              values = list(
+                type = "array",
+                description = paste0(
+                  "\u5024\u30e9\u30d9\u30eb\u3002\u5404\u8981\u7d20\u306fcode\u3068label\u306e\u30da\u30a2\u3002",
+                  "\u6570\u5024\u5165\u529b\u30fb\u81ea\u7531\u8a18\u8ff0\u306f\u7a7a\u914d\u5217\u3002"
+                ),
+                items = list(
+                  type = "object",
+                  required = c("code", "label"),
+                  properties = list(
+                    code = list(
+                      type = c("integer", "null"),
+                      description = "\u30b3\u30fc\u30c9\u5024\uff08\u6574\u6570\uff09"
+                    ),
+                    label = list(
+                      type = "string",
+                      description = "\u5024\u30e9\u30d9\u30eb"
+                    )
+                  )
+                )
+              ),
+              condition = list(
+                type = c("string", "null"),
+                description = paste0(
+                  "\u56de\u7b54\u6761\u4ef6\u30fb\u30b9\u30ad\u30c3\u30d7\u6761\u4ef6\u3002",
+                  "\u4f8b: \"Q3=1\u306e\u65b9\u306e\u307f\"\u3002\u306a\u3051\u308c\u3070null\u3002"
+                )
+              ),
+              page = list(
+                type = c("integer", "null"),
+                description = "\u8abf\u67fb\u7968\u306e\u30da\u30fc\u30b8\u756a\u53f7"
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+}
+
+#' Convert variable schema to Gemini format
+#' @keywords internal
+gemini_variable_schema <- function() {
+  schema <- variable_tool_schema()$input_schema
+
+  clean_types <- function(obj) {
+    if (!is.list(obj)) return(obj)
+    if (!is.null(obj$type) && length(obj$type) > 1) {
+      obj$type <- setdiff(obj$type, "null")[1]
+    }
+    if (!is.null(obj$properties)) {
+      obj$properties <- lapply(obj$properties, clean_types)
+    }
+    if (!is.null(obj$items)) {
+      obj$items <- clean_types(obj$items)
+    }
+    obj
+  }
+
+  clean_types(schema)
+}
+
 #' Call Google Gemini API
 #'
 #' Send a request to the Gemini API with structured JSON output.
@@ -391,7 +509,8 @@ call_gemini <- function(system_prompt,
                         api_key = Sys.getenv("GEMINI_API_KEY"),
                         model = "gemini-2.0-flash",
                         max_tokens = 8192L,
-                        temperature = 0) {
+                        temperature = 0,
+                        response_schema = NULL) {
 
   if (is.null(user_message) && is.null(user_parts)) {
     cli::cli_abort("Either {.arg user_message} or {.arg user_parts} must be provided.")
@@ -425,7 +544,7 @@ call_gemini <- function(system_prompt,
       temperature = temperature,
       max_output_tokens = max_tokens,
       response_mime_type = "application/json",
-      response_json_schema = gemini_response_schema()
+      response_json_schema = response_schema %||% gemini_response_schema()
     )
   )
 

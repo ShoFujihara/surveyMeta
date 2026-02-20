@@ -12,7 +12,8 @@ call_claude(
   model = "claude-sonnet-4-5-20250929",
   max_tokens = 8192L,
   temperature = 0,
-  use_tool_use = TRUE
+  use_tool_use = TRUE,
+  tool_schema = NULL
 )
 }
 \arguments{

@@ -191,6 +191,30 @@ print(eval_result)
 #>   ...
 ```
 
+## 変数レベルメタデータの抽出
+
+調査票PDFから変数ラベル・値ラベルを自動抽出し、コードブックの叩き台を生成する。
+
+```r
+vars <- extract_variables("2015SSM面接調査票.pdf")
+vars
+#> === Variable-Level Metadata ===
+#>   Variables: 85
+#>   Value labels: 412
+#>
+#>   Q1       性別                           [single] 1=男性, 2=女性
+#>   Q2       生年月日                       [numeric]
+#>   Q3       最終学歴                       [single] 1=中学校, 2=高等学校, 3=短大・高専, ...
+#>   Q4       就業状態                       [single] 1=正規雇用, 2=非正規雇用, ...
+#>   ...
+
+# Excelコードブックとして出力
+export_codebook(vars, "codebook.xlsx")
+
+# CSV/JSON出力も可能
+export_codebook(vars, "codebook.csv", format = "csv")
+```
+
 ## 抽出フィールド一覧（JDCatメタデータスキーマ対応）
 
 | フィールド | JDCat対応 | 内容 | 型 |

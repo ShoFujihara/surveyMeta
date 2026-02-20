@@ -11,7 +11,8 @@ call_gemini(
   api_key = Sys.getenv("GEMINI_API_KEY"),
   model = "gemini-2.0-flash",
   max_tokens = 8192L,
-  temperature = 0
+  temperature = 0,
+  response_schema = NULL
 )
 }
 \arguments{
