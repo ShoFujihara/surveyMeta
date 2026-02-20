@@ -28,5 +28,5 @@ Suggests:
     rmarkdown,
     xml2
 Config/testthat/edition: 3
-URL: https://github.com/sfujihara/surveyMeta
-BugReports: https://github.com/sfujihara/surveyMeta/issues
+URL: https://github.com/ShoFujihara/surveyMeta
+BugReports: https://github.com/ShoFujihara/surveyMeta/issues

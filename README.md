@@ -7,7 +7,7 @@
 ## インストール
 
 ```r
-remotes::install_github("sfujihara/surveyMeta")
+remotes::install_github("ShoFujihara/surveyMeta")
 ```
 
 ## APIキーの設定
