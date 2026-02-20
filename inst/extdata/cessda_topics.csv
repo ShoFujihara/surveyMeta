@@ -1,0 +1,109 @@
+code,label_en,label_ja,parent_code
+1,"Demography (population, vital statistics, and censuses)",人口統計（人口・人口動態統計・国勢調査）,
+1.1,Censuses,国勢調査,1
+1.2,Fertility,出生力,1
+1.3,Migration,移動・移民,1
+1.4,Mortality,死亡,1
+1.5,Population and vital statistics,人口・人口動態統計,1
+2,Economics,経済,
+2.1,Agricultural economics,農業経済,2
+2.2,Business/industrial management and organisation,企業・産業経営と組織,2
+2.3,Consumption/consumer behaviour,消費・消費者行動,2
+2.4,Economic conditions and indicators,経済状況・経済指標,2
+2.5,Economic policy,経済政策,2
+2.6,Economic systems and development,経済制度・経済発展,2
+2.7,Income and property,所得・財産,2
+2.8,International trade and finance,国際貿易・国際金融,2
+2.9,Public expenditure and revenue,財政支出・歳入,2
+2.10,Savings and investments,貯蓄・投資,2
+2.11,Transport and travel,運輸・旅行,2
+3,Education,教育,
+3.1,Compulsory and pre-school education,義務教育・就学前教育,3
+3.2,Educational policy,教育政策,3
+3.3,Higher and further education,高等教育・継続教育,3
+3.4,Life-long/continuing education,生涯学習・継続教育,3
+3.5,Teaching profession,教職,3
+3.6,Vocational education and training,職業教育・訓練,3
+4,Health,健康,
+4.1,Alcohol/drug abuse,アルコール・薬物乱用,4
+4.2,Childbearing and family planning,出産・家族計画,4
+4.3,General health and well-being,一般的な健康とウェルビーイング,4
+4.4,Health care and medical treatment,保健医療・治療,4
+4.5,Health policy,保健政策,4
+4.6,Nutrition,栄養,4
+4.7,Physical fitness and exercise,体力・運動,4
+4.8,Reproductive health,リプロダクティブヘルス,4
+4.9,Specific diseases and medical conditions,特定疾患・医学的状態,4
+5,History,歴史,
+5.1,Cultural history,文化史,5
+5.2,Economic history,経済史,5
+5.3,Political history,政治史,5
+5.4,Social history,社会史,5
+6,Housing and land use,住宅・土地利用,
+6.1,Housing,住宅,6
+6.2,Land use and planning,土地利用・計画,6
+7,Labour and employment,労働・雇用,
+7.1,Employment,雇用,7
+7.2,Labour relations/conflict,労使関係・紛争,7
+7.3,Retirement,退職,7
+7.4,Unemployment,失業,7
+7.5,Working conditions,労働条件,7
+8,"Law, crime and legal systems",法律・犯罪・法制度,
+8.1,Civil law,民法,8
+8.2,Crime,犯罪,8
+8.3,Criminal law,刑法,8
+8.4,Human rights,人権,8
+8.5,Legal systems,法制度,8
+8.6,Police and security,警察・治安,8
+9,"Media, communication and language",メディア・コミュニケーション・言語,
+9.1,Advertising,広告,9
+9.2,Information society,情報社会,9
+9.3,Language and linguistics,言語・言語学,9
+9.4,Mass media,マスメディア,9
+9.5,Print media,印刷メディア,9
+10,Natural environment,自然環境,
+10.1,Climate and weather,気候・気象,10
+10.2,Energy and natural resources,エネルギー・天然資源,10
+10.3,Environmental degradation/pollution,環境悪化・汚染,10
+10.4,Flora and fauna,動植物,10
+10.5,Land use and conservation,土地利用・保全,10
+11,Politics,政治,
+11.1,Conflict and peace,紛争・平和,11
+11.2,Domestic politics and government,国内政治・行政,11
+11.3,Elections,選挙,11
+11.4,Government regulation,政府規制,11
+11.5,International politics and organisations,国際政治・国際機関,11
+11.6,Political behaviour and attitudes,政治的行動・態度,11
+11.7,Political ideology,政治的イデオロギー,11
+11.8,Political systems and parties,政治制度・政党,11
+12,Psychology,心理学,
+12.1,Attitudes and values,態度・価値観,12
+12.2,Personality and emotions,パーソナリティ・感情,12
+12.3,Social behaviour,社会的行動,12
+12.4,Social influence and persuasion,社会的影響・説得,12
+12.5,Social psychology,社会心理学,12
+13,Science and technology,科学技術,
+13.1,Biotechnology,バイオテクノロジー,13
+13.2,Information technology,情報技術,13
+13.3,Internet,インターネット,13
+13.4,Research and development,研究開発,13
+13.5,Science and research policy,科学・研究政策,13
+14,Social stratification and groupings,社会階層・集団,
+14.1,Children,子ども,14
+14.2,"Equality, inequality and social exclusion",平等・不平等・社会的排除,14
+14.3,Ethnic groups and minorities,民族・マイノリティ,14
+14.4,Family life and marriage,家族生活・婚姻,14
+14.5,Gender and gender roles,ジェンダー・性別役割,14
+14.6,Elderly,高齢者,14
+14.7,Social and occupational mobility,社会移動・職業移動,14
+14.8,Youth,青年,14
+15,Society and culture,社会・文化,
+15.1,Community and urban life,コミュニティ・都市生活,15
+15.2,Cultural activities and participation,文化活動・参加,15
+15.3,Leisure and tourism,レジャー・観光,15
+15.4,Religion and values,宗教・価値観,15
+15.5,Social attitudes and behaviour,社会的態度・行動,15
+15.6,Social change,社会変動,15
+15.7,Social conditions and indicators,社会状況・社会指標,15
+15.8,Social welfare policy and systems,社会福祉政策・制度,15
+15.9,Time use,生活時間,15

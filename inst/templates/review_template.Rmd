@@ -1,0 +1,74 @@
+---
+title: "メタデータ抽出結果レビュー"
+params:
+  survey_id: "0000"
+  extracted: NULL
+  official: NULL
+output:
+  html_document:
+    toc: true
+    theme: cosmo
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(surveyMeta)
+```
+
+# 調査 `r params$survey_id` メタデータレビュー
+
+## 基本情報
+
+```{r basic}
+ext <- params$extracted
+off <- params$official
+
+review_field <- function(field_name, label) {
+  ext_val <- flatten_value(ext[[field_name]])
+  off_val <- if (!is.null(off)) flatten_value(off[[field_name]]) else NA
+
+  cat(sprintf("\n### %s\n\n", label))
+
+  if (!is.null(off) && !is.na(off_val)) {
+    cat("**公式:**\n\n")
+    cat(off_val, "\n\n")
+  }
+
+  cat("**抽出結果:**\n\n")
+  if (!is.na(ext_val)) {
+    cat(ext_val, "\n\n")
+  } else {
+    cat("*(未抽出)*\n\n")
+  }
+
+  cat("**レビュー:** [ ] 承認 / [ ] 要修正\n\n")
+  cat("**修正内容:** \n\n---\n\n")
+}
+```
+
+```{r fields, results='asis'}
+review_field("survey_overview", "調査の概要")
+review_field("data_type", "データタイプ")
+review_field("survey_target", "調査対象")
+review_field("unit_of_analysis", "調査対象の単位")
+review_field("sample_size", "サンプルサイズ")
+review_field("survey_date", "調査時点")
+review_field("geographic_coverage", "調査地域")
+review_field("sampling_procedure", "標本抽出")
+review_field("mode_of_collection", "調査方法")
+review_field("survey_conductor", "調査実施者")
+review_field("cessda_topic", "CESSDAトピック")
+review_field("ssjda_topic", "SSJDAトピック")
+review_field("main_survey_items", "主要調査事項")
+```
+
+## 評価スコア
+
+```{r evaluation}
+if (!is.null(off)) {
+  eval_result <- evaluate_extraction(ext, official = off)
+  print(eval_result)
+} else {
+  cat("公式メタデータなし（評価スキップ）\n")
+}
+```

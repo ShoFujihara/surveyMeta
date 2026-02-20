@@ -1,0 +1,32 @@
+Package: surveyMeta
+Title: Extract Structured Metadata from Social Survey Documents Using LLM APIs
+Version: 0.1.0
+Author: Sho Fujihara [aut, cre] (<https://orcid.org/0000-0002-7007-1934>)
+Maintainer: Sho Fujihara <fujihara@iss.u-tokyo.ac.jp>
+Authors@R: person("Sho", "Fujihara", email = "fujihara@iss.u-tokyo.ac.jp",
+    role = c("aut", "cre"), comment = c(ORCID = "0000-0002-7007-1934"))
+Description: Extracts structured metadata from social survey documents (questionnaires,
+    reports) using LLM APIs (Anthropic Claude, Google Gemini). Outputs metadata conforming
+    to the JDCat/DDI schema with controlled vocabulary mapping for CESSDA topics, DDI
+    sampling procedures, and DDI modes of collection. Supports text extraction, PDF vision,
+    and hybrid modes for optimal handling of diverse document quality.
+Depends: R (>= 4.1.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Imports:
+    httr2 (>= 1.0.0),
+    jsonlite,
+    readr,
+    pdftools,
+    cli
+Suggests:
+    testthat (>= 3.0.0),
+    writexl,
+    tesseract,
+    rmarkdown,
+    xml2
+Config/testthat/edition: 3
+URL: https://github.com/sfujihara/surveyMeta
+BugReports: https://github.com/sfujihara/surveyMeta/issues

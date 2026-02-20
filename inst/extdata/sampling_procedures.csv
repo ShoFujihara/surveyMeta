@@ -1,0 +1,19 @@
+code,label_en,label_ja
+Probability,Probability,確率
+Probability.SimpleRandom,Probability: Simple random sample,確率: 単純無作為抽出
+Probability.SystematicRandom,Probability: Systematic random sample,確率: 系統抽出
+Probability.Stratified,Probability: Stratified,確率: 層別抽出
+Probability.Stratified.Proportional,Probability: Stratified: Proportional,確率: 層別抽出: 比例割当法
+Probability.Stratified.Disproportionate,Probability: Stratified: Disproportionate,確率: 層別抽出: 非比例割当法
+Probability.Cluster,Probability: Cluster,確率: 集落抽出
+Probability.Cluster.StratifiedRandom,Probability: Cluster: Stratified random,確率: 集落抽出: 単純無作為
+Probability.Multistage,Probability: Multistage,確率: 多段抽出
+Nonprobability,Nonprobability,非確率
+Nonprobability.Availability,Nonprobability: Availability,非確率: 利用可能性
+Nonprobability.Purposive,Nonprobability: Purposive,非確率: 有意抽出
+Nonprobability.Quota,Nonprobability: Quota,非確率: クオータ抽出
+Nonprobability.RespondentAssisted,Nonprobability: Respondent-assisted,非確率: 応答者支援
+Nonprobability.RespondentAssisted.Snowball,Nonprobability: Respondent-assisted: Snowball,非確率: 雪だるま式
+MixedProbabilityNonprobability,Mixed probability and nonprobability,混合確率と非確率
+TotalUniverseCompleteEnumeration,Total universe/Complete enumeration,母集団/ 全数調査
+Other,Other,その他

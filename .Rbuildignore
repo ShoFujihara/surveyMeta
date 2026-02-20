@@ -1,0 +1,12 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^CLAUDE\.md$
+^\.github$
+^\.claude$
+^evaluation_.*\.md$
+^eval_by_chatGPT\.md$
+^data-raw$
+^inst/extdata/1508$
+^\.DS_Store$
+^\.\.Rcheck$

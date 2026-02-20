@@ -1,0 +1,24 @@
+# R
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# macOS
+.DS_Store
+
+# Build artifacts
+..Rcheck/
+*.tar.gz
+
+# Internal development files (not for public repo)
+CLAUDE.md
+eval_by_chatGPT.md
+evaluation_*.md
+data-raw/
+.claude/
+
+# Example PDFs (copyrighted survey documents, not for distribution)
+inst/extdata/1508/
+inst/extdata/*.pdf

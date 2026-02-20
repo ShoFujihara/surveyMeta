@@ -1,0 +1,16 @@
+code,label_en,label_ja
+Interview,Interview,インタビュー
+Interview.FaceToFace,Interview: Face-to-face interview,個別面接法
+Interview.FaceToFace.CAPI,"Interview: Face-to-face interview: CAPI/CAMI",個別面接法：紙と鉛筆（PAPI）
+Interview.Telephone,Interview: Telephone interview,電話法
+Interview.Telephone.CATI,Interview: Telephone interview: CATI,電話法：CATI
+SelfAdministeredQuestionnaire,Self-administered questionnaire,自記式調査票
+SelfAdministeredQuestionnaire.Paper,Self-administered questionnaire: Paper,自記式調査票：紙
+SelfAdministeredQuestionnaire.WebBased,"Self-administered questionnaire: Web-based (CAWI)",自記式調査票：Webベース（CAWI）
+SelfAdministeredQuestionnaire.CASI,Self-administered questionnaire: CASI,自記式調査票：コンピュータ支援型（CASI）
+SelfAdministeredQuestionnaire.Email,Self-administered questionnaire: E-mail,自記式調査票：電子メール
+SelfAdministeredWrittenDiary.Paper,Self-administered written/diary: Paper,自記式の文章／日記：紙
+Observation,Observation,観察
+Experiment,Experiment,実験
+CompilationSynthesis,Compilation/Synthesis,記録・文書データの収集
+Other,Other,その他
