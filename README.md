@@ -51,10 +51,10 @@ usethis::edit_r_environ()
 library(surveyMeta)
 
 # Claude（デフォルト）
-result <- extract_metadata("2015SSM面接調査票_校了.pdf")
+result <- extract_metadata("2015SSM面接調査票.pdf")
 
 # Gemini 2.0 Flash（無料枠で利用可能）
-result <- extract_metadata("2015SSM面接調査票_校了.pdf", model = "gemini-2.0-flash")
+result <- extract_metadata("2015SSM面接調査票.pdf", model = "gemini-2.0-flash")
 
 result$survey_overview
 #> "本調査は、2015年SSM調査研究会が2015年に実施した、日本全国の
@@ -80,7 +80,7 @@ result$evidence$sampling_procedure
 
 ```r
 result <- extract_metadata(c(
-  "2015SSM面接調査票_校了.pdf",
+  "2015SSM面接調査票.pdf",
   "2015SSM調査報告書.pdf"
 ))
 
